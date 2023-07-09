@@ -1,0 +1,37 @@
+IInscription List(s) defined:
+{insl:[l:[L,Ln],ln:[L,Ln]]}
+
+Definitions:
+[] = array - required
+list_name = [0-9a-zA-Z]+ using regex
+inscription_number_(base64) = [0-9a-zA-Z+/]+ using regex
+
+l:[L,Ln] is original/1st inscription list - required
+l is 1st list_name - required
+L is 1st inscription_number_(base64) associated with list l - required
+Ln is nth inscription_number_(base64) associated with list l - optional
+
+ln:[L,Ln] is nth inscription list - optional
+ln is nth list_name - required
+L is 1st inscription_number_(base64) associated with list ln - required
+Ln is nth inscription_number_(base64) associated with list ln - - optional
+
+Examples:
+1. Base case (inscription = 410,086):
+{insl:[lst:[BkHm]]}
+
+2. Twin insciption case(inscriptions = 15,358,847 and 212,924):
+{insl:[prLst:[6lt/,z+8]]}
+
+3. Pair of lists case (list 1 inscriptions = 15,358,847 and 212,924 & list 2 inscriptions = 948,168 and 498):
+{insl:[1stLst:[6lt/,z+8],2ndLst:[DnfI,Hy]]}
+
+Notes:
+    • Shortened version of JSON used for efficiency, to keep BTC inscribing costs to a minimum, while still human readable
+    • Base64 used for efficiency, to keep BTC inscribing costs to a minimum
+    • insl is pronounced 'incel'
+
+Once this protocol is adopted, front-end software can be created to help generate the syntax (e.g. base64 conversions etc.).
+
+References:
+https://math.tools/calculator/base/10-64
